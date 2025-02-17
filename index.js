@@ -49,6 +49,9 @@ app.get('/ping', (req, res) => {
   res.status(200).json({ message: 'Server is alive!' });
 });
 
+app.head('/ping', (req, res) => {
+  res.status(200).end();  
+});
 
 app.use("/users", userRouter);
 app.use("/posts", postRouter);
