@@ -10,7 +10,11 @@ import dotenv from 'dotenv';
 dotenv.config();
 const app = express();
 
-app.use(cors(process.env.CLIENT_URL));
+app.use(cors({
+    origin: process.env.CLIENT_URL?.split(",") || ["http://localhost:5173", "https://klcvo.vercel.app"], 
+    credentials: true
+}));
+
 app.use(clerkMiddleware());
 app.use("/webhooks", webhookRouter);
 app.use(express.json());
