@@ -15,6 +15,7 @@ app.use(cors({
     credentials: true
 }));
 
+
 app.use(clerkMiddleware());
 app.use("/webhooks", webhookRouter);
 app.use(express.json());
