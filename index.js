@@ -10,10 +10,7 @@ import dotenv from 'dotenv';
 dotenv.config();
 const app = express();
 
-app.use(cors({
-    origin: process.env.CLIENT_URL?.split(",") || ["http://localhost:5173", "https://komodohb.vercel.app"], 
-    credentials: true
-}));
+app.use(cors(process.env.CLIENT_URL));
 
 
 app.use(clerkMiddleware());
